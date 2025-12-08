@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" style="background-color: #121212;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Sanctuary Studio - Where Breath Meets Precision. Yoga, Pilates, and Meditation.">
+    <title>Sanctuary | Breath & Precision</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,600,500,400&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            /* Palette Configuration */
+            --background: #121212; 
+            --surface: #1E1E1E;
+            --primary: #E57A4B;
+            --text-primary: #F0F0F0;
+            --text-secondary: #A0A0A0;
+            --border-subtle: rgba(255, 255, 255, 0.1);
+        }
+
+        /* FIX: Global tap highlight removal */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* FIX: Apply background to HTML to stop white flash during overscroll/loading */
+        html {
+            background-color: var(--background);
+        }
+        
+        body {
+            font-family: 'General Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+        }
+
+        /* Tailwind Config */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['General Sans', 'sans-serif'] },
+                    colors: {
+                        'background': 'var(--background)',
+                        'surface': 'var(--surface)',
+                        'primary': 'var(--primary)',
+                        'text-primary': 'var(--text-primary)',
+                        'text-secondary': 'var(--text-secondary)',
+                        'border-subtle': 'var(--border-subtle)',
+                    },
+                    borderRadius: { 'xl': '12px' },
+                }
+            }
+        }
+
+        /* Animations & Interactions */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #121212 5%, rgba(18, 18, 18, 0.6) 50%, rgba(18, 18, 18, 0.3) 100%);
+            z-index: 1;
+        }
+        .hero-content { z-index: 2; }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: var(--primary);
+            color: #121212;
+            transition: all 0.2s;
+        }
+        .btn-primary:active { transform: scale(0.98); }
+
+        .btn-secondary {
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            background: transparent;
+        }
+        .btn-secondary:active { background: rgba(255,255,255,0.05); transform: scale(0.98); }
+
+        /* Utilities */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Mobile Table Fix */
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border-subtle">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tight text-text-primary">Sanctuary.</a>
+            <a href="#schedule" class="bg-text-primary text-background px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white transition-colors">
+                Book
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative h-[85vh] flex items-center justify-center hero-overlay overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop'); filter: grayscale(30%);"></div>
+            
+            <div class="relative text-center px-6 hero-content mt-10">
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-none">
+                    Breath Meets<br/><span class="text-primary">Precision</span>
+                </h1>
+                <p class="text-lg text-gray-200 mb-8 max-w-md mx-auto leading-relaxed">
+                    A dedicated space to center your mind and strengthen your body.
+                </p>
+                <div class="flex flex-col gap-3 w-full max-w-xs mx-auto">
+                    <a href="#schedule" class="btn-primary w-full py-3.5 rounded-xl font-bold text-center">View Schedule</a>
+                    <a href="#difference" class="btn-secondary w-full py-3.5 rounded-xl font-bold text-center">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="difference" class="py-20 px-6 fade-in-section">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-text-primary mb-2">The Difference</h2>
+                    <p class="text-text-secondary">Transformative pillars of practice.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-surface p-6 rounded-2xl border border-border-subtle">
+                        <i data-lucide="scan-line" class="w-8 h-8 text-primary mb-4"></i>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Personalized</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">Instructors adapt every routine to your specific body and goals.</p>
+                    </div>
+                    <div class="bg-surface p-6 rounded-2xl border border-border-subtle">
+                        <i data-lucide="award" class="w-8 h-8 text-primary mb-4"></i>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Expert Led</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">Learn from seasoned professionals who live their craft.</p>
+                    </div>
+                    <div class="bg-surface p-6 rounded-2xl border border-border-subtle">
+                        <i data-lucide="wind" class="w-8 h-8 text-primary mb-4"></i>
+                        <h3 class="text-xl font-bold text-text-primary mb-2">Mindful</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">A serene environment designed to foster focus and tranquility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule" class="py-20 px-4 bg-surface fade-in-section">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-text-primary mb-8 text-center">Class Schedule</h2>
+                
+                <div class="bg-background rounded-xl border border-border-subtle overflow-hidden">
+                    <div class="table-container scrollbar-hide">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-border-subtle bg-surface/50">
+                                    <th class="p-4 text-xs uppercase text-text-secondary font-semibold">Time</th>
+                                    <th class="p-4 text-xs uppercase text-text-secondary font-semibold">Class</th>
+                                    <th class="p-4 text-xs uppercase text-text-secondary font-semibold">Teacher</th>
+                                    <th class="p-4"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-border-subtle">
+                                <tr>
+                                    <td class="p-4 text-sm font-medium text-text-primary whitespace-nowrap">9:00 AM</td>
+                                    <td class="p-4 text-sm text-text-secondary whitespace-nowrap">Vinyasa Flow</td>
+                                    <td class="p-4 text-sm text-text-secondary whitespace-nowrap">Elara V.</td>
+                                    <td class="p-4 text-right"><a href="#" class="text-primary text-sm font-bold">Book</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 text-sm font-medium text-text-primary whitespace-nowrap">12:00 PM</td>
+                                    <td class="p-4 text-sm text-text-secondary whitespace-nowrap">Power Pilates</td>
+                                    <td class="p-4 text-sm text-text-secondary whitespace-nowrap">Jaxon R.</td>
+                                    <td class="p-4 text-right"><a href="#" class="text-primary text-sm font-bold">Book</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 text-sm font-medium text-text-primary whitespace-nowrap">6:00 PM</td>
+                                    <td class="p-4 text-sm text-text-secondary whitespace-nowrap">Mindful Yin</td>
+                                    <td class="p-4 text-sm text-text-secondary whitespace-nowrap">Aria C.</td>
+                                    <td class="p-4 text-right"><a href="#" class="text-primary text-sm font-bold">Book</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-3 text-center text-xs text-text-secondary bg-surface/30">
+                        Swipe left to see details →
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 px-6 fade-in-section">
+            <div class="container mx-auto max-w-md">
+                <h2 class="text-3xl font-bold text-text-primary mb-6 text-center">Find Us</h2>
+                <div class="rounded-2xl overflow-hidden border border-border-subtle aspect-video mb-6 relative group">
+                     <img src="https://placehold.co/600x400/121212/333?text=Map+View" class="w-full h-full object-cover">
+                     <a href="https://maps.google.com" target="_blank" class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+                         <span class="bg-primary text-background px-4 py-2 rounded-lg font-bold">Open Maps</span>
+                     </a>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-start">
+                        <i data-lucide="map-pin" class="text-primary w-6 h-6 shrink-0"></i>
+                        <p class="text-text-secondary">123 Wellness Ave, Suite 100<br>Serenity, CA 90210</p>
+                    </div>
+                     <div class="flex gap-4 items-start">
+                        <i data-lucide="phone" class="text-primary w-6 h-6 shrink-0"></i>
+                        <p class="text-text-secondary">(555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-12 bg-surface text-center border-t border-border-subtle">
+        <p class="text-text-secondary text-sm mb-4">© 2025 Sanctuary Studio</p>
+        <div class="flex justify-center gap-6">
+            <i data-lucide="instagram" class="w-5 h-5 text-text-secondary"></i>
+            <i data-lucide="facebook" class="w-5 h-5 text-text-secondary"></i>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
