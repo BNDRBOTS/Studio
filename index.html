@@ -41,6 +41,7 @@
             font-family: 'General Sans', sans-serif;
             background-color: var(--background);
             color: var(--text-primary);
+            overflow-x: hidden; /* Prevents horizontal glitching */
         }
 
         /* Tailwind Config */
@@ -168,7 +169,7 @@
                 
                 <div class="bg-background rounded-xl border border-border-subtle overflow-hidden">
                     <div class="table-container scrollbar-hide">
-                        <table class="w-full text-left border-collapse">
+                        <table class="w-full min-w-[600px] text-left border-collapse">
                             <thead>
                                 <tr class="border-b border-border-subtle bg-surface/50">
                                     <th class="p-4 text-xs uppercase text-text-secondary font-semibold">Time</th>
